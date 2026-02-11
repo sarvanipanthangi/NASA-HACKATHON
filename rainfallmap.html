@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Low Rainfall</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    #map { height: 100vh; width: 100%; }
+    .popup-content { text-align: center; }
+    .popup-content button {
+      padding: 8px 12px;
+      background: #007BFF;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 8px;
+    }
+    .popup-content button:hover { background: #0056b3; }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+    // Multiple Low Rainfall locations
+    const locations = [
+      { title: "Atacama Desert", description: "The driest desert on Earth, with some areas receiving no rainfall for centuries.", lat: -24.5, lon: -68.2 },
+      { title: "McMurdo Dry Valleys", description: "The driest place on Earth, with extremely low humidity and almost no ice or snow cover.", lat: -77.5, lon: 163.5 },
+      { title: "Sonoran Desert", description: "A desert region shared by the USA and Mexico, known for its unique flora and fauna.", lat: 32.0, lon: -113.0 },
+      { title: "Sahara Desert", description: "The largest hot desert in the world, spanning across multiple countries.", lat: 23.0, lon: 13.0 }
+    ]; // <-- Closed the array here
+
+    // Initialize map (temporary center, will adjust later)
+    const map = L.map('map').setView([20, 77], 5);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    const markers = [];
+
+    // Add all markers
+    locations.forEach(loc => {
+      const popupContent = `
+        <div class="popup-content">
+          <h3>${loc.title}</h3>
+          <p>${loc.description}</p>
+          <button onclick="window.location.href='livedata.html'">View Live Data</button>
+        </div>
+      `;
+      const marker = L.marker([loc.lat, loc.lon]).addTo(map).bindPopup(popupContent);
+      markers.push(marker);
+    });
+
+    // Adjust map to show all markers
+    const group = new L.featureGroup(markers);
+    map.fitBounds(group.getBounds().pad(0.2)); // pad adds a little space around edges
+  </script>
+</body>
+</html>
