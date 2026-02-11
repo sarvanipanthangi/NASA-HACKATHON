@@ -1,30 +1,12 @@
-Interactive Earth Systems Visualization Platform
+# React + Vite
 
-Connected Earth is an interactive web-based platform designed to visualize the interconnected nature of Earth systems using real-time and historical NASA Earth observation data. The platform helps users explore how climate, rainfall, droughts, wildfires, vegetation, and air quality are spatially and temporally connected.
-This project was developed as part of the NASA International Space Apps Challenge.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Project Motivation-
+Currently, two official plugins are available:
 
-Earth’s systems—atmosphere, water cycles, vegetation, and wildfire dynamics—are deeply interconnected.
-However, traditional tools often fail to present these complex relationships in an accessible and interactive way.
-Connected Earth bridges this gap by:
-Making NASA’s vast Earth observation datasets easy to explore
-Providing interactive geospatial visualizations
-Encouraging data-driven understanding of environmental interdependencies
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-Key Features
+## Expanding the ESLint configuration
 
-Interactive Web Maps-Zoomable and pannable maps built with Leaflet.js
-Real-Time & Historical Data-Access current and past environmental data from NASA APIs
-Customizable Data Layers-Explore different Earth systems such as:
-  Rainfall
-  Drought
-  Wildfires
-  Vegetation
-  Air Quality
-
-Location-Based Exploration
-Users can select geographic coordinates to view region-specific insights
-
-Visual Insights
-Data presented through maps, lists, and charts for better interpretability
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
